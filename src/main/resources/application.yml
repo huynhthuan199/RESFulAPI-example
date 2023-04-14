@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:/data/demo
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  sql:
+    init:
+      mode: always
+      platform: h2
+      data-locations:
+        - classpath:data-h2.sql 
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: create-drop
+    generate-ddl: true
+    defer-datasource-initialization: true
+  h2:
+    console.enabled: true
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    enabled: true
